@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RedlineTV</title>
+<link rel="stylesheet" href="style.css">
+<!-- Font Awesome qidiruv ikoni uchun -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div id="home">
+<header>
+  RedlineTV
+  <span id="searchBtn" style="float:right;cursor:pointer;">
+    <i class="fas fa-search"></i>
+  </span>
+</header>
+
+<!-- Shorts -->
+<div class="row scroll" id="shorts"></div>
+
+<!-- Premieres -->
+<div class="row">
+<h3>Premyeralar</h3>
+<div class="cards" id="premieres">
+  <div class="cards-inner" id="premieres-inner"></div>
+</div>
+</div>
+
+<!-- Genres -->
+<div class="row genre" id="genres"></div>
+
+<!-- Movies -->
+<div class="row row-title">
+<h3>Kinolar</h3>
+<button id="allMoviesBtn">Barchasi</button>
+</div>
+<div class="cards" id="movies"></div>
+
+<!-- Series -->
+<div class="row row-title">
+<h3>Seriallar</h3>
+<button id="allSeriesBtn">Barchasi</button>
+</div>
+<div class="cards" id="series"></div>
+
+</div>
+
+<!-- Movie Page -->
+<div id="movie" class="hidden">
+<div class="back" onclick="goHome()">← Orqaga</div>
+<iframe id="player" src="" allowfullscreen></iframe>
+
+<div class="episodes" id="episodes"></div>
+
+<div class="info">
+<h2 id="movie-title"></h2>
+<p id="movie-genre"></p>
+<p id="movie-desc"></p>
+</div>
+
+<div class="actors">
+<h3>Aktyorlar</h3>
+<div class="actor" id="movie-actors"></div>
+</div>
+
+<div class="gallery">
+<h3>Kadrlar</h3>
+<div class="images" id="movie-images"></div>
+</div>
+</div>
+
+<!-- Short Modal -->
+<div id="shortModal"></div>
+
+<!-- List Modal -->
+<div id="listModal">
+<div class="back" onclick="closeListModal()">← Orqaga</div>
+<div id="listModalContent" class="genre-cards"></div>
+</div>
+
+<!-- Actor Modal -->
+<div id="actorModal">
+<div class="back" onclick="closeActorModal()">← Orqaga</div>
+<div id="actorMovies" class="genre-cards"></div>
+</div>
+
+<!-- Search Modal -->
+<div id="searchModal">
+  <div class="back" onclick="closeSearch()">← Orqaga</div>
+  <input type="text" id="searchInput" placeholder="Qidiruv..." />
+  <div id="searchResults" class="genre-cards"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

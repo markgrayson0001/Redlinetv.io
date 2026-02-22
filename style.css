@@ -1,0 +1,363 @@
+/* ==================== GENERAL ==================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+  background: #0b0b0b;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ==================== HEADER ==================== */
+header {
+  padding: 15px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: red;
+  position: relative;
+}
+
+header #searchBtn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+/* ==================== ROW ==================== */
+.row {
+  padding: 10px 8px;
+}
+
+.row-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==================== SCROLL ==================== */
+.scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==================== SHORTS ==================== */
+.short {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid red;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+.short img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==================== PREMIERE SLIDER ==================== */
+#premieres {
+  padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+#premieres-inner {
+  display: flex;
+  gap: 12px;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  pointer-events: none;
+}
+
+#premieres-inner .card {
+  min-width: 380px;
+  height: 200px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform-origin: center center;
+  pointer-events: auto;
+}
+
+#premieres-inner .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#premieres-inner .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+/* ==================== SLIDER BUTTONS ==================== */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 8px;
+}
+
+.slider-btn.left { left: 5px; }
+.slider-btn.right { right: 5px; }
+
+/* ==================== MOVIE CARDS ==================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card {
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 120px;
+  border-radius: 15px;
+  margin-bottom: 4px;
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+/* 🔥 TEXT FIX – 2 QATOR ELLIPSIS */
+.card div {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.2em;
+  height: 2.4em;
+}
+
+/* ==================== GENRES ==================== */
+.genre {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+.genre::-webkit-scrollbar {
+  display: none;
+}
+
+.genre span {
+  background: #1f1f1f;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+/* ==================== MOVIE PAGE ==================== */
+#movie iframe {
+  width: 100%;
+  height: 225px;
+  border: none;
+  border-radius: 8px;
+}
+
+.episodes {
+  display: flex;
+  gap: 8px;
+  padding: 10px 0;
+  overflow-x: auto;
+}
+.episodes::-webkit-scrollbar {
+  display: none;
+}
+
+.episodes button {
+  background: #1f1f1f;
+  border: none;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.episodes .active {
+  background: red;
+}
+
+/* ==================== ACTORS ==================== */
+.actor-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4px;
+  font-size: 12px;
+}
+
+#movie-actors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.actor-item img {
+  width: 100px;
+  height: 150px;
+  border-radius: 10%;
+  object-fit: cover;
+  margin-bottom: 4px;
+  transition: transform 0.9s ease;
+}
+
+.actor-item img:hover {
+  transform: scale(1.4);
+}
+
+/* ==================== MOVIE IMAGES ==================== */
+#movie-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  padding: 8px;
+}
+
+#movie-images img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+#movie-images img:hover {
+  transform: scale(1.2);
+}
+
+/* ==================== BACK BUTTON ==================== */
+.back {
+  padding: 12px;
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ==================== MODALS ==================== */
+#shortModal,
+#listModal,
+#actorModal,
+#searchModal {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  background: #0b0b0b;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0 10px;
+}
+
+#shortModal {
+  background: #000;
+  justify-content: center;
+  align-items: center;
+}
+
+#shortModal video,
+#shortModal iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== MODAL GRIDS ==================== */
+#listModalContent,
+#actorMovies,
+#searchResults {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 ga bo‘linadi */
+  gap: 12px;
+  padding: 10px 0;
+}
+
+@media (max-width: 400px) {
+  #listModalContent,
+  #actorMovies,
+  #searchResults {
+    grid-template-columns: 1fr; /* kichik ekranlarda 1 ga tushadi */
+  }
+}
+
+/* ==================== SEARCH INPUT ==================== */
+#searchModal input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media(max-width:400px) {
+  header { font-size: 20px; }
+
+  .short {
+    width: 58px;
+    height: 58px;
+  }
+
+  #premieres-inner .card {
+    min-width: 100%;
+    height: 180px;
+  }
+
+  #movie iframe { height: 180px; }
+
+  #movie-images {
+    grid-template-columns: 1fr;
+  }
+
+  #movie-images img {
+    height: 100px;
+  }
+}
